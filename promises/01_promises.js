@@ -3,7 +3,7 @@
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 */
 
-function returnValuesWithPromise() {
+export function returnValuesWithPromise() {
   /*
       El objeto Promise recibe un callback como inicializador.
       Luego la Promesa ejecutará este callback pasando 2 funciones.
@@ -18,21 +18,21 @@ function returnValuesWithPromise() {
   })
 
   return promise
-  // .then() retorna la misma promesa.
-  .then(function (value) {
-    console.log('Valor exitoso 1', value)
-  })
-  // Podemos seguir encadenando más .then()
-  // ¿Ambos .then() recibirán el mismo valor?
-  // .then(function (value) {
-  //   console.log('Valor exitoso 2', value)
-  // })
+    // .then() retorna la misma promesa.
+    .then(function (value) {
+      console.log('Valor exitoso 1', value)
+    })
+    // Podemos seguir encadenando más .then()
+    // ¿Ambos .then() recibirán el mismo valor?
+    // .then(function (value) {
+    //   console.log('Valor exitoso 2', value)
+    // })
 
-  // si comentamos el return anterior pero concatenando los .then 
-  //return promise
+    // si comentamos el return anterior pero concatenando los .then 
+    //return promise
 }
 
-function rejectValuesWithPromise() {
+export function rejectValuesWithPromise() {
   /*
     El objeto Promise recibe un callback como inicializador.
     Luego la Promesa ejecutará este callback pasando 2 funciones.
@@ -68,7 +68,7 @@ function rejectValuesWithPromise() {
     // })
 }
 
-function returnValuesWithRelatedPromises() {
+export function returnValuesWithRelatedPromises() {
   var getUserInfo = function (userId) {
     return Promise.resolve({ id: 1, name: 'Eli', benefitsId: 10 })
   }
@@ -91,7 +91,7 @@ function returnValuesWithRelatedPromises() {
     })
 }
 
-function returnValuesWithParallelPromises () {
+export function returnValuesWithParallelPromises () {
   var getUserInfo = function (userId) {
     return Promise.resolve({ id: 1, name: 'Eli', benefitsId: 10 })
   }
@@ -114,7 +114,7 @@ function returnValuesWithParallelPromises () {
     })
 }
 
-function returnValuesFirstOtherPromises() {
+export function returnValuesFirstOtherPromises() {
   var getUserInfo = function (userId) {
     
     // return Promise.resolve(
@@ -148,13 +148,4 @@ function returnValuesFirstOtherPromises() {
       console.log('Resolved the first value returned', response)
       return response
     })
-}
-
-
-module.exports = {
-  returnValuesWithPromise: returnValuesWithPromise,
-  rejectValuesWithPromise: rejectValuesWithPromise,
-  returnValuesWithRelatedPromises: returnValuesWithRelatedPromises,
-  returnValuesWithParallelPromises: returnValuesWithParallelPromises,
-  returnValuesFirstOtherPromises: returnValuesFirstOtherPromises
 }
